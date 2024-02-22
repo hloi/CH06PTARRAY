@@ -38,21 +38,31 @@ using namespace std;
 //    delete c;
 //    return 0;
 //}
-int* expand(int* ar, int size) {
-    int newSize = size*2;  // double the size
-    int* arr = new int[newSize]; // use square parenthesis
-    for (int i=0; i<size; i++) {
-        *(arr+i) = *(ar+1);
-    }
-    delete ar;  // delete old array
-    return arr; // return new array
-
-}
+//int* expand(int* ar, int size) {
+//    int newSize = size*2;  // double the size
+//    int* arr = new int[newSize]; // use square parenthesis
+//    for (int i=0; i<size; i++) {
+//        *(arr+i) = *(ar+1);
+//    }
+//    delete ar;  // delete old array
+//    return arr; // return new array
+//
+//}
 
 
 void print(int *ar, int size) {
     for (int i=0; i<size; i++) {
         cout << *(ar + i) << endl;
+    }
+}
+
+void print2d(int *ar, int rowSize, int colSize ) {
+    for (int row=0; row<rowSize; i++) {
+        int rowNum = row * colSize;
+        for (int col=0; col<colSize; col++) {
+            cout << *(ar + rowNum + col) << " ";
+        }
+        cout << endl;
     }
 }
 
@@ -81,14 +91,19 @@ void print(int *ar, int size) {
 
 
 int main() {
-    int size = 5;
-    int* arr = new int(size);
-    for (int i=0; i<5; i++) {
-        *(arr+i) = i;
-    }
-    print(arr,size);
+//    int size = 5;
+//    int* arr = new int(size);
+//    for (int i=0; i<5; i++) {
+//        *(arr+i) = i;
+//    }
+//    print(arr,size);
+//
+//    arr = expand(arr, size);
+//    size = size * 2;
+//    print(arr, size);
 
-    arr = expand(arr, size);
-    size = size * 2;
-    print(arr, size);
+    int d2arr[][4] = { {1,2,3,4},
+                  {5,6,7,8}};
+
+    print2d(&d2arr[0][0], 2, 4);
 }
